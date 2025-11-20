@@ -8,7 +8,6 @@ import (
 
 // setupRoutes configures all the routes
 func (s *Server) setupRoutes() {
-	// Apply recovery and logging middleware to all routes
 	http.HandleFunc("/hello-world", RecoveryMiddleware(LoggingMiddleware(handler.HelloWorld)))
 	http.HandleFunc("/health", RecoveryMiddleware(LoggingMiddleware(handler.Health)))
 }
